@@ -1,0 +1,9 @@
+name: dl4de
+channels:
+  - default
+  - conda-forge
+dependencies:
+  - python=3.10
+  - cudatoolkit=11.7
+  - cudnn=8.4
+  - pip=22.2
