@@ -13,3 +13,5 @@ update-conda-env:
 	# Use this instead of reset-conda-env to keep existing packages.
 	@echo Updating conda environment...
 	conda env update --file "./environment.yml"
+
+.PHONY: default reset-conda-env update-conda-env
