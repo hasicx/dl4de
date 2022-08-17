@@ -15,4 +15,10 @@ update-conda-env:
 	@echo Updating conda environment...
 	conda env update --file "./environment.yml"
 
-.PHONY: default build-conda-env update-conda-env
+install-pip-tools:
+	pip install pip-tools==6.8.0 setuptools==65.0.2
+
+.PHONY: default \
+	build-conda-env \
+	update-conda-env \
+	install-pip-tools
