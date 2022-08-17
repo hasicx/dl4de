@@ -18,7 +18,11 @@ update-conda-env:
 install-pip-tools:
 	pip install pip-tools==6.8.0 setuptools==65.0.2
 
+pip-compile:
+	pip-compile ./requirements/requirements.in
+
 .PHONY: default \
 	build-conda-env \
 	update-conda-env \
-	install-pip-tools
+	install-pip-tools \
+	pip-compile
