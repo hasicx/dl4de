@@ -7,3 +7,9 @@
 3.  Install pip packages: `$ make install-pip-tools`.
 4.  Compile requirements: `$ make pip-compile`.
 5.  Sync requirements: `$ make pip-sync`.
+
+## Setup dataset
+
+1.  Create downloads directory in ./tmp: `$ mkdir -p ./tmp/downloads`.
+2.  Download dataset (zip file) to `downloads`.
+3.  Setup dataset: `$ python ./setup_dataset.py`
