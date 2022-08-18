@@ -21,8 +21,12 @@ install-pip-tools:
 pip-compile:
 	pip-compile ./requirements/requirements.in
 
+pip-sync:
+	pip-sync ./requirements/requirements.txt
+
 .PHONY: default \
 	build-conda-env \
 	update-conda-env \
 	install-pip-tools \
-	pip-compile
+	pip-compile \
+	pip-sync
