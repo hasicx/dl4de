@@ -24,9 +24,22 @@ pip-compile:
 pip-sync:
 	pip-sync ./requirements/requirements.txt
 
+configure-paths:
+	# Required for gpu support, see https://www.tensorflow.org/install/pip
+	mkdir -p $$CONDA_PREFIX/etc/conda/activate.d
+	mkdir -p $$CONDA_PREFIX/etc/conda/deactivate.d
+	echo 'export OLD_LD_LIBRARY_PATH=$$LD_LIBRARY_PATH' \
+		> $$CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+	echo 'export LD_LIBRARY_PATH=$$OLD_LD_LIBRARY_PATH:$$CONDA_PREFIX/lib' \
+		>> $$CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+	echo 'export LD_LIBRARY_PATH=$$OLD_LD_LIBRARY_PATH' \
+		> $$CONDA_PREFIX/etc/conda/deactivate.d/env_vars.sh
+	@echo Important: reactivate conda environment for changes to take effect!
+
 .PHONY: default \
 	build-conda-env \
 	update-conda-env \
 	install-pip-tools \
 	pip-compile \
-	pip-sync
+	pip-sync \
+	configure-paths
