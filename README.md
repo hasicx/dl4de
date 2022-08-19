@@ -12,4 +12,4 @@
 
 1.  Create downloads directory in ./tmp: `$ mkdir -p ./tmp/downloads`.
 2.  Download dataset (zip file) to `downloads`.
-3.  Setup dataset: `$ python ./setup_dataset.py`
+3.  Setup dataset (kitti segmentation): `$ python ./setup_dataset.py`.
