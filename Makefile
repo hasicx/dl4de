@@ -19,10 +19,12 @@ install-pip-tools:
 	pip install pip-tools==6.8.0 setuptools==65.0.2
 
 pip-compile:
-	pip-compile ./requirements/requirements.in
+	pip-compile ./requirements/requirements.in \
+		&& pip-compile ./requirements/dev-requirements.in
 
 pip-sync:
-	pip-sync ./requirements/requirements.txt
+	pip-sync ./requirements/requirements.txt \
+		./requirements/dev-requirements.txt
 
 configure-paths:
 	# Required for gpu support, see https://www.tensorflow.org/install/pip
