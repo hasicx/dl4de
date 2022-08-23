@@ -5,4 +5,6 @@ datasets/
 
 misc/
 
+notebooks/*.ipynb
+
 tmp/downloads/
