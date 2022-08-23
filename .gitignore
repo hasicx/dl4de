@@ -1,7 +1,10 @@
 __pycache__/
+.ipynb_checkpoints/
 
 datasets/
 
 misc/
+
+notebooks/*.ipynb
 
 tmp/downloads/
