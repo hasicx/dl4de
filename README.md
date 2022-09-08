@@ -13,3 +13,4 @@
 1.  Create downloads directory in ./tmp: `$ mkdir -p ./tmp/downloads`.
 2.  Download dataset (zip file) to `downloads`.
 3.  Setup dataset (kitti segmentation): `$ python ./setup_dataset.py`.
+    -   TODO: add argument parsing for scene flow dataset

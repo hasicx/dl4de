@@ -9,6 +9,7 @@ assert os.getcwd().endswith('/dl4de')
 DOWNLOAD_LOCATION = './tmp/downloads/'
 DATASETS_LOCATION = './datasets/'
 FILENAME = 'data_semantics.zip'
+# TODO: add arg-parsing for dataset selection
 
 assert os.path.isfile(DOWNLOAD_LOCATION + FILENAME)
 
