@@ -11,9 +11,9 @@ import tensorflow as tf
 
 
 ds_keras = tf.keras.utils.image_dataset_from_directory(
-    directory="datasets/kitti/training/image_2/",
+    directory="../datasets/kitti/training/image_2/", 
     labels=None,
-    image_size=[1242, 375]
+    image_size=[375,1242]
 )
 
 
@@ -21,11 +21,11 @@ ds_keras = tf.keras.utils.image_dataset_from_directory(
 
 
 ds_features = tf.data.Dataset.list_files(
-    file_pattern="datasets/kitti/training/image_2/*.png",
+    file_pattern="../datasets/kitti/training/image_2/*.png",
     shuffle=False
 )
 ds_targets = tf.data.Dataset.list_files(
-    file_pattern="datasets/kitti/training/semantic/*.png",
+    file_pattern="../datasets/kitti/training/semantic/*.png",
     shuffle=False
 )
 
@@ -35,9 +35,8 @@ ds_targets = tf.data.Dataset.list_files(
 
 def decode_img(img):
     img = tf.io.decode_png(img)
-    img = tf.image.resize(img, [1242, 375])
+    img = tf.image.resize(img, [375, 1242])
     return img
-
 
 def process_path(file_path):
     img = tf.io.read_file(file_path)
@@ -50,3 +49,4 @@ def process_path(file_path):
 
 ds_features = ds_features.map(process_path)
 ds_targets = ds_targets.map(process_path)
+
