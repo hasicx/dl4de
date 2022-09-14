@@ -11,20 +11,21 @@ build-conda-env:
 
 update-conda-env:
 	# Update/build conda environment according to `environment.yml`.
-	# Use this instead of reset-conda-env to already installed packages.
+	# Use this instead of reset-conda-env to keep already installed packages.
 	@echo Updating conda environment...
 	conda env update --file "./environment.yml"
 
 install-pip-tools:
-	pip install pip-tools==6.8.0 setuptools==65.0.2
+	pip install pip-tools==6.8.0 setuptools==65.3.0
 
 pip-compile:
-	pip-compile ./requirements/requirements.in \
-		&& pip-compile ./requirements/dev-requirements.in
+	pip-compile "./requirements/requirements.in" \
+		&& pip-compile "./requirements/dev-requirements.in"
 
 pip-sync:
-	pip-sync ./requirements/requirements.txt \
-		./requirements/dev-requirements.txt
+	pip-sync --python-executable ~/miniconda3/envs/dl4de/bin/python \
+		"./requirements/requirements.txt" \
+		"./requirements/dev-requirements.txt"
 
 configure-paths:
 	# Required for gpu support, see https://www.tensorflow.org/install/pip
